@@ -5,6 +5,9 @@ const Letter = prompt('Введите букву которую нужно по�
 console.log(firstRow, '-- Первая строка');
 console.log(secondRow, '-- Вторая строка');
 console.log(getRow(secondRow, firstRow));
+var retry = true;
+
+
 function getRow(firstRow, secondRow)
 {
 let count_first=0;
@@ -29,3 +32,48 @@ console.log(secondRow, ' :- в этой строке больше букв - ', 
 }
 }
 
+
+function formattedPhonenumber() { 
+  alert("Задание 2");
+  var phonenumber = prompt("Введите номер телефона: "); 
+  var lenPhonenumber = phonenumber.length;
+  if (lenPhonenumber == 12){
+      var num=phonenumber.split('');
+      if (num[1] != 7) num[1] = 7; 
+      num.splice(2,"", " ("); 
+      num.splice(6,"", ") "); 
+      num.splice(10,"", "-"); 
+      num.splice(13,"", "-"); 
+  }
+  else if (lenPhonenumber == 11)
+  {
+      var num=phonenumber.split('');
+      if (num[0] != 7) num[0] = 7;
+      num.splice(0,"","+") 
+      num.splice(2,"", " ("); 
+      num.splice(6,"", ") "); 
+      num.splice(10,"", "-"); 
+      num.splice(13,"", "-"); 
+  }
+  else if (lenPhonenumber == 10)
+  {
+      var num=phonenumber.split('');
+      num.splice(0,"",7) 
+      num.splice(0,"","+") 
+      num.splice(2,"", " ("); 
+      num.splice(6,"", ") "); 
+      num.splice(10,"", "-"); 
+      num.splice(13,"", "-"); 
+  }
+  else {alert("Вы ввели неправильный формат номера!")}
+  alert(num.join(''))
+  var ret = prompt("Повторить? (y/n)");
+  if (ret=="y") {
+      retry = true;
+  }
+  else{retry = false;}
+  } 
+while (true){
+  if (retry == true) console.log(formattedPhonenumber());
+  else break;
+}
